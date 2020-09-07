@@ -1,0 +1,5 @@
+{
+  "apiEndPoint": "http://localhost:3900/api/v1",
+  "AuthTokenHeaderName": "Authorization",
+  "AuthTokenHeaderAppend": "Token "
+}
