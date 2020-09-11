@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/home/rahul/.local/share/virtualenvs/blog_backend-oiTPHgoD/bin/python",
+    "python.formatting.provider": "black"
+}
