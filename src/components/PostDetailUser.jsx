@@ -8,6 +8,7 @@ function PostDetailUser({ author }) {
         src={profile.image}
         className="card-img-top rounded p-2 pt-3"
         alt="No face"
+        style={{ maxHeight: "250px" }}
       />
       <center className="card-title">
         <h5>{`${first_name} ${last_name}`}</h5>

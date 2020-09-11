@@ -1,7 +1,7 @@
 import React from "react";
-import { useLocation, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useReducer } from "react";
-
+import auth from "../services/authservices";
 import PostDetailUser from "./PostDetailUser";
 import Loading from "./common/Loading";
 import { getPost } from "../services/postService";
@@ -12,12 +12,11 @@ import PostDetailBody from "./PostDetailBody";
 import PostDetailOperations from "./PostDetailOperations";
 
 function PostDetail() {
-  const location = useLocation();
   let initialPostData = {};
 
-  if (location.state) {
-    initialPostData = location.state.post;
-  }
+  // if (location.state) {
+  //   initialPostData = location.state.post;
+  // }
 
   const [post, postDispatch] = useReducer(dataFetchReducer, {
     isLoading: false,
@@ -36,7 +35,7 @@ function PostDetail() {
         postDispatch({ type: "FETCH_INIT" });
         try {
           const { data } = await getPost(post_id);
-          console.log(data, data);
+
           if (!didCancel)
             postDispatch({ type: "FETCH_SUCCESS", payload: data });
         } catch (error) {
@@ -51,6 +50,7 @@ function PostDetail() {
         didCancel = true;
       };
     }
+    // eslint-disable-next-line
   }, [history]);
 
   return (
@@ -66,7 +66,12 @@ function PostDetail() {
             updated_at={post.data.updated_at}
           />
 
-          <PostDetailOperations />
+          {Number(auth.getCurrentUserId()) === post.data.author.id && (
+            <PostDetailOperations
+              post={post.data}
+              postDispatch={postDispatch}
+            />
+          )}
         </div>
       )}
     </Loading>

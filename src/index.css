@@ -26,3 +26,6 @@ body {
 .card {
   border: 1vh;
 }
+#navLink li {
+  display: inline;
+}

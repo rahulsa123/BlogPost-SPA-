@@ -10,7 +10,7 @@ function useDataFetch(dispatch, getData, ...rest) {
       dispatch({ type: "FETCH_INIT" });
       try {
         const { data } = await getData(...rest);
-        console.log(data);
+
         if (!didCancel) dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (error) {
         if (!didCancel) {

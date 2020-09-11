@@ -82,8 +82,26 @@ export async function getPost(id) {
 }
 
 export async function getPosts(url) {
-  console.log(url);
-  if (url === "") return http.get(apiEndPoint);
+  if (url === "") return http.get(apiEndPoint + "/");
   else return axios(url);
-  // return post_data.results;
 }
+export async function updatePost(post) {
+  return http.patch(`${apiEndPoint}/post/${post.id}/`, {
+    id: post.id,
+    title: post.title,
+    body: post.body,
+  });
+}
+export async function deletePost(post_id) {
+  return http.delete(`${apiEndPoint}/post/${post_id}/`);
+}
+export async function createPost(title, body) {
+  return http.post(`${apiEndPoint}/post/create/`, { title, body });
+}
+export default {
+  getPost,
+  getPosts,
+  updatePost,
+  deletePost,
+  createPost,
+};

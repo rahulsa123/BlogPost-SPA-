@@ -11,7 +11,7 @@ PostDetailBody.propTypes = {
 
 function PostDetailBody({ title, body, created_at, updated_at }) {
   return (
-    <div className="col card text-center p-0 ml-4">
+    <div className="col card text-center p-0 ml-4 postDetail">
       <div className="card-header" style={{ width: "100%" }}>
         <h5 className="card-title mt-2 mb-2">{title.toUpperCase()}</h5>
       </div>

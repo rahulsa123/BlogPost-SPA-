@@ -19,6 +19,12 @@ export const dataFetchReducer = (state, action) => {
         isLoading: false,
         isError: true,
       };
+    case "DATA_UPDATED":
+      return {
+        data: action.payload,
+        isLoading: false,
+        isError: false,
+      };
     default:
       throw new Error();
   }
