@@ -28,4 +28,5 @@
 * for default configration(inside project folder).
   ```bash
   $ mkdir media
-  $ cp <any image path for default profile> media/default.png 
+  $ cp 'any image path for default profile' media/default.png 
+  ```
