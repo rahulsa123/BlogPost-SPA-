@@ -13,13 +13,13 @@ export async function register(username, password1, password2) {
   await authservices.login(username, password1);
 }
 export async function getProfile(id) {
-  return await http.get(`http://localhost:8000/api/v1/user/${id}/`);
+  return await http.get(`${config.apiEndPoint}/user/${id}/`);
 }
 export async function updateProfile(id, data) {
   const form = new FormData();
   for (let key in data) form.append(key, data[key]);
 
-  return await http.put(`http://localhost:8000/api/v1/user/${id}/`, form);
+  return await http.put(`${config.apiEndPoint}/user/${id}/`, form);
 }
 export async function updateProfilePic(id, data) {
   const form = new FormData();
@@ -27,7 +27,7 @@ export async function updateProfilePic(id, data) {
 
   return await axios({
     method: "put",
-    url: `http://localhost:8000/api/v1/user/${id}/`,
+    url: `${config.apiEndPoint}/user/${id}/`,
     data: form,
     headers: {
       "content-type": `multipart/form-data; boundary=${form._boundary}`,
