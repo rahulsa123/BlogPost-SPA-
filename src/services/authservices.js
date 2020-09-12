@@ -9,7 +9,7 @@ const userName = "username";
 if (getToken() !== null) setToken(getToken());
 
 export async function login(username, password) {
-  const { data } = await http.post("http://localhost:8000/api/v1/login/", {
+  const { data } = await http.post(`${config.apiEndPoint}/login/`, {
     username,
     password,
   });
