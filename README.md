@@ -14,7 +14,7 @@
 * clone respositry
   ```bash
   $ git clone https://github.com/rahulsa123/blog_backend.git
-  $ cd MyShop
+  $ cd blog_backend
   ```
 * Install dependencies and run server
   ```bash
